@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from ml_tools import classification
+from src.ml_tools import one_hot
 
 
 class TestClassification(unittest.TestCase):
@@ -21,7 +21,7 @@ class TestClassification(unittest.TestCase):
                       pd.DataFrame(self.input_str)[0], pd.DataFrame(self.input_int)[0], 
                       np.array(self.input_str), np.array(self.input_int)]:
             self.assertTrue(np.array_equal(
-                classification.categorical_encode(value), 
+                one_hot.categorical_encode(value), 
                 self.one_hot
             ))
             print(value)
